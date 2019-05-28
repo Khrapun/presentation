@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown  data-background="#dddddd">
+					<textarea data-template>
+						## React Presentation
+
+						* <p class="fragment" data-fragment-index="1">What is React?</p>
+						* <p class="fragment" data-fragment-index="2">Good and bad sides of the React</p>
+						* <p class="fragment" data-fragment-index="3">Most important terms in React</p>
+						* <p class="fragment" data-fragment-index="4">Why was React developed?</p>
+						* <p class="fragment" data-fragment-index="5">Who uses React?</p>
+					</textarea>
+				</section>
+				<section>
+				<section data-background = "https://media3.giphy.com/media/26tPtg8M3i6DPSSt2/source.gif"><br><br><br><b>What is React?</b></section>
+				<section data-background="#dddddd">React is a JavaScript library for building user interfaces. 
+				</section>
+				<section data-background="#dddddd">
+						Simple example
+					<pre><code class="html">    
+		class FruitList extends React.Component {
+			render() {
+			return (
+		<div className="fruit-list">
+			<h1>Fruit List for {this.props.name}</h1>
+			<ul>
+				<li>orange</li>
+				<li>banana</li>
+				<li>apple</li>
+			</ul>
+		</div>
+	);
+	}
+	}</code></pre>
+				</section>
+				</section>
+				<section data-background="#dddddd">
+					<section><b>Good and bad sides of the React</b></section>
+					<section>GOOD</section>
+					<section> 
+							<b>Easy to understand what a component will render</b><br><br><br>
+							 Declarative code → predictable code<br><br>
+							 You don't really need to study JS in the view file in order to understand what the file does
+					</section>
+					<section> 
+							<b>Easy to mix HTML and JS</b><br><br><br>
+							You do it already with template libraries (e.g. Handlebars, Mustache, Underscore etc.)			
+					</section>
+					<section> 
+							<b>Uses full power of JS</b><br><br><br>
+							Decoupling templates from logic does not rely on the templates’ primitive abstractions, but uses full power of JavaScript in displaying views			
+					</section>
+					<section> 
+							<b>No complex two-way data flow</b><br><br><br>
+							Uses simple one-way reactive data flow<br><br>
+							Easier to understand than two-way binding<br><br>
+							Uses less code
+					</section>
+					<section> 
+							<b>React dev tools</b><br><br><br>
+							React Chrome extension makes debugging  so much easier<br><br>
+					</section>
+					<section>BAD</section>
+					<section> 
+							<b>React is nothing but the view</b><br><br><br>
+							No events<br><br>
+							No XHR<br><br>
+							No data / models<br><br>
+							No promises / deferreds<br><br>
+							No idea how to add all of the above<br><br>
+					</section>
+					<section> 
+							<b>Very little info in the docs</b><br><br><br>
+							But it's not hard to learn<br><br>
+					</section>
+					<section> 
+							<b>Architectural annoyances</b><br><br><br>
+							Setting state on unmounted components<br><br>
+					</section>
+					<section> 
+							<b>Building JSX requires some extra work</b><br><br><br>
+							But most of the work is already done for you by react-tools<br><br>
+					</section>
+					<section> 
+							<b>No support for older browsers</b><br><br><br>
+							React won't work with IE8<br><br>
+					</section>
+				</section>
+				<section  data-background="#dddddd">
+					<section><b>Most important terms in React</b></section>
+					<section> 
+							<b>Component</b><br><br><br>
+							Components are self-contained reusable building blocks of web application.
+							React components are basically just idempotent functions (same input produces same output).
+							They describe your UI at any point in time, just like a server-rendered app.<br><br>
+					</section>
+					<section> 
+							<b>Props</b><br><br><br>
+							Passed down to component from parent component and represents data for the component<br><br>
+					</section>
+					<section> 
+							<b>JSX</b><br><br><br>
+							Arguably, one of the coolest things in React<br><br>
+							XML-like syntax for generating component's HTML<br><br>
+							Easier to read and understand large DOM trees<br><br>
+							Translates to plain JavaScript using react-tools<br><br>
+					</section>
+					<section> 
+							<b>State</b><br><br><br>
+							Represents internal state of the component<br><br>
+							Accessed via this.state<br><br>
+							When a component's state data changes, the rendered markup will be updated by re-invoking render() method<br><br>
+					</section>
+					<section> 
+							<b>Virtual DOM</b><br><br><br>
+							The virtual DOM is used for efficient re-rendering of the DOM<br><br>
+							React aims to re-render the virtual tree only when the state changes<br><br>
+							Uses 2 virtual trees (new and previous) to find differences and batch update real DOM<br><br>
+					</section>
+				</section>
+				<section>
+					<section data-background="#dddddd"><b>Why was React developed?</b></section>
+					<section data-background="#dddddd"> 
+							Complexity of two-way data binding<br><br>
+							Bad UX from using "cascading updates" of DOM tree<br><br>
+							A lot of data on a page changing over time<br><br>
+							Complexity of Facebook's UI architecture<br><br>
+							Shift from MVC mentality
+					</section>
+				</section>
+				<section data-markdown  data-background="#dddddd">
+					<textarea data-template>
+						## Who uses React?
+
+						* Facebook
+						* Instagram
+						* Netflix
+						* Airbnb
+						* Аnd many others...
+					</textarea>
+				</section>
+				<section data-background="#dddddd"> 
+						Thanks for your attention :)
+				</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
